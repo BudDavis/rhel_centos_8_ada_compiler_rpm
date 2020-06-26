@@ -1,5 +1,7 @@
 # rhel_centos_8_ada_compiler_rpm
 
+"ada compiler rhel8" "rhel8 ada" "centos8 gnat rpm"  "rhel8 gnat 32 bit rpm"
+
 ada is no longer provided by redhat in rpm format.  
 
 at first glance, it is as simple as setting the 'build_ada' flag to 1 in the spec file

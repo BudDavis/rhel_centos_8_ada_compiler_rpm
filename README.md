@@ -78,11 +78,11 @@ To install:
                        
  #9. Test Program  (cut and paste into a.adb)
  
- `with text_io;
-  procedure a is
-  begin
-     text_io.put_line("hello");
-  end;`
+ `with text_io;`
+ ` procedure a is`
+ ` begin`
+ `    text_io.put_line("hello");`
+  `end;``
  
 #10.  Try it
 

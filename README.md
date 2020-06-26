@@ -79,20 +79,30 @@ To install:
  #9. Test Program  (cut and paste into a.adb)
  
  `with text_io;`
+ 
  ` procedure a is`
+ 
  ` begin`
+ 
  `    text_io.put_line("hello");`
+ 
   `end;``
  
 #10.  Try it
 
 `gnatmake -m32 a.adb
+
  file ./a
- ./a `
- or
- `gnatmake a.adb
-  file ./a
- ./a`
+
+./a `
+
+or
+
+`gnatmake a.adb
+
+file ./a
+
+./a`
 
  
 #10.  The changes to the spec file is in the file "pfile".  Not proud of it, but it is what it is.

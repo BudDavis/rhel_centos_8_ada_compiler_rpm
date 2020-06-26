@@ -96,7 +96,7 @@ To install:
 
  
 #10.  The changes to the spec file:
-`
+
 [bdavis@localhost SPECS]$ diff gcc.spec.orig gcc.spec
 18c18
 < %global build_ada 0
@@ -177,7 +177,7 @@ To install:
 > #tar cf - testlogs-%{_target_platform}-%{version}-%{release} | xz -9e \
 > #  | uuencode testlogs-%{_target_platform}.tar.xz || :
 > #rm -rf testlogs-%{_target_platform}-%{version}-%{release}
-`
+
 
 
 

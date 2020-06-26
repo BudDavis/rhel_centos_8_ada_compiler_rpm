@@ -1,0 +1,79 @@
+18c18
+< %global build_ada 0
+---
+> %global build_ada 1
+107c107
+< Release: %{gcc_release}%{?dist}.0.2
+---
+> Release: %{gcc_release}%{?dist}.0.4
+974c974
+< 	--with-bugurl=http://bugzilla.redhat.com/bugzilla \
+---
+> 	--disable-bootstrap --with-bugurl=http://bugzilla.redhat.com/bugzilla \
+1095c1095
+< 	../configure --enable-bootstrap \
+---
+> 	../configure \
+1104c1104
+<        LDFLAGS_FOR_TARGET="$RPM_LD_FLAGS" profiledbootstrap
+---
+>        LDFLAGS_FOR_TARGET="$RPM_LD_FLAGS" 
+1230a1231,1233
+> 
+> 
+> 
+1231a1235,1239
+> # bud
+> # these should be copied over by the install process but they are not
+> cp -R ./gcc/ada/rts %{buildroot}%{_prefix}/lib/gcc/%{gcc_target_platform}/%{gcc_major}
+> cp -R ./gcc/ada/rts_32 %{buildroot}%{_prefix}/lib/gcc/%{gcc_target_platform}/%{gcc_major}
+> 
+1805,1806c1813,1823
+< ln -sf ../../../%{multilib_32_arch}-%{_vendor}-%{_target_os}/%{gcc_major}/adainclude 32/adainclude
+< ln -sf ../../../%{multilib_32_arch}-%{_vendor}-%{_target_os}/%{gcc_major}/adalib 32/adalib
+---
+> # bud
+> # the others in the code directly above are also wrong.
+> # not proud of this, but it works.
+> mkdir -p  %{buildroot}%{_prefix}/lib/gcc/%{gcc_target_platform}/%{gcc_major}/32/adalib
+> cp %{buildroot}%{_prefix}/lib/gcc/%{gcc_target_platform}/%{gcc_major}/rts_32/lib* %{buildroot}%{_prefix}/lib/gcc/%{gcc_target_platform}/%{gcc_major}/32/adalib
+> mkdir -p %{buildroot}%{_prefix}/lib/gcc/%{gcc_target_platform}/%{gcc_major}/32/adainclude
+> cp %{buildroot}%{_prefix}/lib/gcc/%{gcc_target_platform}/%{gcc_major}/rts_32/*.ali %{buildroot}%{_prefix}/lib/gcc/%{gcc_target_platform}/%{gcc_major}/32/adalib
+> cp %{buildroot}%{_prefix}/lib/gcc/%{gcc_target_platform}/%{gcc_major}/rts_32/*.ads %{buildroot}%{_prefix}/lib/gcc/%{gcc_target_platform}/%{gcc_major}/32/adainclude
+> cp %{buildroot}%{_prefix}/lib/gcc/%{gcc_target_platform}/%{gcc_major}/rts_32/*.adb %{buildroot}%{_prefix}/lib/gcc/%{gcc_target_platform}/%{gcc_major}/32/adainclude
+> #ln -sf ../../../%{multilib_32_arch}-%{_vendor}-%{_target_os}/%{gcc_major}/adainclude 32/adainclude
+> #ln -sf ../../../%{multilib_32_arch}-%{_vendor}-%{_target_os}/%{gcc_major}/adalib 32/adalib
+1976,1991c1993,2008
+< make %{?_smp_mflags} -k check ALT_CC_UNDER_TEST=gcc ALT_CXX_UNDER_TEST=g++ \
+< %if 0%{?fedora} >= 20 || 0%{?rhel} > 7
+<      RUNTESTFLAGS="--target_board=unix/'{,-fstack-protector-strong}'" || :
+< %else
+<      RUNTESTFLAGS="--target_board=unix/'{,-fstack-protector}'" || :
+< %endif
+< echo ====================TESTING=========================
+< ( LC_ALL=C ../contrib/test_summary || : ) 2>&1 | sed -n '/^cat.*EOF/,/^EOF/{/^cat.*EOF/d;/^EOF/d;/^LAST_UPDATED:/d;p;}'
+< echo ====================TESTING END=====================
+< mkdir testlogs-%{_target_platform}-%{version}-%{release}
+< for i in `find . -name \*.log | grep -F testsuite/ | grep -v 'config.log\|acats.*/tests/'`; do
+<   ln $i testlogs-%{_target_platform}-%{version}-%{release}/ || :
+< done
+< tar cf - testlogs-%{_target_platform}-%{version}-%{release} | xz -9e \
+<   | uuencode testlogs-%{_target_platform}.tar.xz || :
+< rm -rf testlogs-%{_target_platform}-%{version}-%{release}
+---
+> #make %{?_smp_mflags} -k check ALT_CC_UNDER_TEST=gcc ALT_CXX_UNDER_TEST=g++ \
+> #%if 0%{?fedora} >= 20 || 0%{?rhel} > 7
+> #     RUNTESTFLAGS="--target_board=unix/'{,-fstack-protector-strong}'" || :
+> #%else
+> #     RUNTESTFLAGS="--target_board=unix/'{,-fstack-protector}'" || :
+> #%endif
+> #echo ====================TESTING=========================
+> #( LC_ALL=C ../contrib/test_summary || : ) 2>&1 | sed -n '/^cat.*EOF/,/^EOF/{/^cat.*EOF/d;/^EOF/d;/^LAST_UPDATED:/d;p;}'
+> #echo ====================TESTING END=====================
+> #mkdir testlogs-%{_target_platform}-%{version}-%{release}
+> #for i in `find . -name \*.log | grep -F testsuite/ | grep -v 'config.log\|acats.*/tests/'`; do
+> #  ln $i testlogs-%{_target_platform}-%{version}-%{release}/ || :
+> #done
+> #tar cf - testlogs-%{_target_platform}-%{version}-%{release} | xz -9e \
+> #  | uuencode testlogs-%{_target_platform}.tar.xz || :
+> #rm -rf testlogs-%{_target_platform}-%{version}-%{release}

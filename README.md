@@ -4,6 +4,11 @@
 
 ada is no longer provided by redhat in rpm format.  
 
+**update:  found this link
+https://rpmfind.net/linux/rpm2html/search.php?query=gcc-gnat
+obvious, isn't it.**
+
+
 at first glance, it is as simple as setting the 'build_ada' flag to 1 in the spec file
 and rebuilding.  i found it to be a rather daunting process.
 

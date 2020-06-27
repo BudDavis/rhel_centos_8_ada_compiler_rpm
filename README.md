@@ -32,6 +32,7 @@ To install:
 4.  update the system
 
                `yum update`
+               
 5. Install headers (to include 32 bit)
 
                `yum install glibc-devel-2.28-101.el8.i686 glibc-common glibc-headers`

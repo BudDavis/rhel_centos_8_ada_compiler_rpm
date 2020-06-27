@@ -94,19 +94,19 @@ To install:
  
 #10.  Try it
 
-`gnatmake -m32 a.adb
+`gnatmake -m32 a.adb`
 
- file ./a
+`file ./a`
 
-./a `
+`./a`
 
 or
 
-`gnatmake a.adb
+`gnatmake a.adb`
 
-file ./a
+`file ./a`
 
-./a`
+`./a`
 
  
 #10.  The changes to the spec file is in the file "pfile".  Not proud of it, but it is what it is.

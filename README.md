@@ -21,7 +21,9 @@ To install:
 
 1. install "GUI Server"
    
-2.            `yum install yum-utils`
+2. install yum utils          
+
+              `yum install yum-utils`
 
 3. enable this rep
 
@@ -88,7 +90,7 @@ To install:
  
  `    text_io.put_line("hello");`
  
-  `end;``
+  `end;`
  
 #10.  Try it
 

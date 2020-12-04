@@ -44,7 +44,7 @@ To install:
                 
 6. Install the redhat compilers
 
-               `yum install "Development Tools"`
+               `yum groupinstall "Development Tools"`
 
 7.  Get rid of a package I don't like
 
@@ -52,14 +52,14 @@ To install:
                
 8.  Install the new compiler(s)             
  
-                `rpm --install -Uvh
+                `rpm --install -Uvh \
                        cpp-8.3.1-5.el8.0.3.x86_64.rpm\
                        gcc-8.3.1-5.el8.0.3.x86_64.rpm\
                        gcc-c++-8.3.1-5.el8.0.3.x86_64.rpm\
                        gcc-gfortran-8.3.1-5.el8.0.3.x86_64.rpm\
                        gcc-gnat-8.3.1-5.el8.0.3.x86_64.rpm\
                        libasan-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libasan-static-8.3.1-5.el8.0.3.x86_64.rpm
+                       libasan-static-8.3.1-5.el8.0.3.x86_64.rpm\
                        libatomic-8.3.1-5.el8.0.3.x86_64.rpm\
                        libatomic-static-8.3.1-5.el8.0.3.x86_64.rpm\
                        libgcc-8.3.1-5.el8.0.3.x86_64.rpm\
@@ -117,4 +117,17 @@ or
  
 #10.  The changes to the spec file is in the file "pfile".  Not proud of it, but it is what it is.
 
- 
+#11.  So, you want to build this from the source rpm?
+
+     `cd SRPMS`
+     `rpm --install gcc-8.3.1-5.el8.0.3.src.rpm`  
+     `cd`
+     `cd rpmbuild`
+     `cd SPECS`
+     `yum install zlib-devel`
+     `yum install dblatex`
+     `yum install dejagnu doxygen elfutils-devel elfutils-libelf-devel glibc-static  gmp-devel isl-devel libmpc-devel mpfr-devel python3-devel`
+     `yum install python3-sphinx sharutils systemtap`
+     `yum install systemtap-sdt-devel texinfo-tex`
+     `rpmbuild -ba gcc.spec`
+

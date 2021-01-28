@@ -4,12 +4,26 @@
 
 ada is no longer provided by redhat in rpm format.  
 
-**update:  found this link
-https://rpmfind.net/linux/rpm2html/search.php?query=gcc-gnat
-obvious, isn't it.**
 
 
-DO NOT USE THESE INSTRUCTIONS.  SOME RPM's ARE MISSING!  THANKS GITHUB.....
+
+`CentOS Linux release 8.1.1911 (Core)    gcc-8.3.1.4`
+
+
+`DO NOT USE THESE INSTRUCTIONS.  SOME RPM's ARE MISSING!  THANKS GITHUB.....`
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

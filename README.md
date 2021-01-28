@@ -4,11 +4,16 @@
 
 ada is no longer provided by redhat in rpm format.  
 
+These rpms are provided for situations where you want to keep the gcc version
+the same as original
 
 
-
-`CentOS Linux release 8.1.1911 (Core)    gcc-8.3.1.4`
-
+| OS version       | gcc version   |
+| ---------------- | ------------- |
+| CentOS-8.1.1911  | gcc-8.3.1.4   |
+| CentOS-8.2.2004  |               |
+| CentOS-8.3.2011  |               |
+| CentOS-Stream-8  |               |
 
 `DO NOT USE THESE INSTRUCTIONS.  SOME RPM's ARE MISSING!  THANKS GITHUB.....`
 

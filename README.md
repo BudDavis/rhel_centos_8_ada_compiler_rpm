@@ -12,11 +12,20 @@ These rpms are provided for situations where you want to keep the gcc version th
 | CentOS-8.1.1911  | gcc-8.3.1.4   |
 | CentOS-8.2.2004  | gcc-8.3.1.5   |
 | CentOS-8.3.2011  |               |
-| CentOS-Stream-8  |               |
+| CentOS-Stream-8  | "who knows!"  |
 
 
 8.2.2004 is the example system
+`$ rpm --query gcc`
+`gcc-8.3.1-5.1.el8.x86_64`
 
+
+
+Installation Instructions:
+(for this example, assume we want to install the ada compilers for 8.2.2004)
+
+
+1.
 
 
 `DO NOT USE THESE INSTRUCTIONS.  SOME RPM's ARE MISSING!  THANKS GITHUB.....`

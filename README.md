@@ -36,13 +36,14 @@ To install:
                `yum update`
                
 5. Install headers (to include 32 bit)
-
+               need to figure out the correct version...
+               `dnf install glibc-devel-2.28-127.el8.i686`
                `yum install glibc-devel-2.28-101.el8.i686 glibc-common glibc-headers`
                 
 6. Install the redhat compilers
 
                `yum groupinstall "Development Tools"`
-
+           
 7. The ada packages have exactly the same names as the rest of the gcc package.  So, we need to make sure the versions match exactly.
 
                `rpm --query gcc`
@@ -53,6 +54,7 @@ Keep the results availible.  They must match.
 
                `cd <where the rpms are>`
                `yum localinstall *8.3.1-5*`
+               `rpm --reinstall *8.3.1-5*`
 
 9. Test Program  (cut and paste into a.adb)
  

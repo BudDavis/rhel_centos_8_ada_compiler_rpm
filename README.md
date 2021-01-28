@@ -9,6 +9,11 @@ https://rpmfind.net/linux/rpm2html/search.php?query=gcc-gnat
 obvious, isn't it.**
 
 
+DO NOT USE THESE INSTRUCTIONS.  SOME RPM's ARE MISSING!  THANKS GITHUB.....
+
+
+
+
 at first glance, it is as simple as setting the 'build_ada' flag to 1 in the spec file
 and rebuilding.  i found it to be a rather daunting process.
 

@@ -14,8 +14,9 @@ These rpms are provided for situations where you want to keep the gcc version th
 | CentOS-8.3.2011  |               |
 | CentOS-Stream-8  | "who knows!"  |
 
+At the time this is written, there are no source rpms available for "stream", and if they were, what is current?  You can get them from a centos git repository, but at this point I don't need it.
 
-8.2.2004 is the example system
+
 `$ rpm --query gcc`
 `gcc-8.3.1-5.1.el8.x86_64`
 

@@ -19,46 +19,6 @@ These rpms are provided for situations where you want to keep the gcc version th
 `$ rpm --query gcc`
 `gcc-8.3.1-5.1.el8.x86_64`
 
-
-
-Installation Instructions:
-(for this example, assume we want to install the ada compilers for 8.2.2004)
-
-
-1.
-
-
-`DO NOT USE THESE INSTRUCTIONS.  SOME RPM's ARE MISSING!  THANKS GITHUB.....`
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-at first glance, it is as simple as setting the 'build_ada' flag to 1 in the spec file
-and rebuilding.  i found it to be a rather daunting process.
-
-32 bit ada works.  the others, not tested.  (looking at the spec file, i think not)
-
-this source rpm should rebuild provided all the pre-reqs are installed.  and these
-binaries are installed for the bootstrap ada compiler.
-
-this is not a 'profiled bootstrap build'.  it had some errors that i did not feel
-like dealing with.  this may make you nervous, if so, you are welcome to dig in.
-
-
-
 To install:
 
 1. install "GUI Server"
@@ -83,47 +43,18 @@ To install:
 
                `yum groupinstall "Development Tools"`
 
-7.  Get rid of a package I don't like
+7. The ada packages have exactly the same names as the rest of the gcc package.  So, we need to make sure the versions match exactly.
 
-               `rpm --erase gcc-gdb-plugin`
-               
-8.  Install the new compiler(s)             
- 
-                `rpm --install -Uvh \
-                       cpp-8.3.1-5.el8.0.3.x86_64.rpm\
-                       gcc-8.3.1-5.el8.0.3.x86_64.rpm\
-                       gcc-c++-8.3.1-5.el8.0.3.x86_64.rpm\
-                       gcc-gfortran-8.3.1-5.el8.0.3.x86_64.rpm\
-                       gcc-gnat-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libasan-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libasan-static-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libatomic-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libatomic-static-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libgcc-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libgfortran-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libgfortran-static-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libgnat-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libgnat-devel-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libgnat-static-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libgomp-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libitm-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libitm-devel-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libitm-static-8.3.1-5.el8.0.3.x86_64.rpm\
-                       liblsan-8.3.1-5.el8.0.3.x86_64.rpm\
-                       liblsan-static-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libquadmath-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libquadmath-devel-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libquadmath-static-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libstdc++-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libstdc++-devel-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libstdc++-docs-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libstdc++-static-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libtsan-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libtsan-static-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libubsan-8.3.1-5.el8.0.3.x86_64.rpm\
-                       libubsan-static-8.3.1-5.el8.0.3.x86_64.rpm`
-                       
- #9. Test Program  (cut and paste into a.adb)
+               `rpm --query gcc`
+
+Keep the results availible.  They must match.
+
+8.  Install the ada rpms.  The below example shows selecting the correct versions with a wildcard.
+
+               `cd <where the rpms are>`
+               `yum localinstall *8.3.1-5*`
+
+9. Test Program  (cut and paste into a.adb)
  
  `with text_io;`
  
@@ -152,9 +83,18 @@ or
 `./a`
 
  
-#10.  The changes to the spec file is in the file "pfile".  Not proud of it, but it is what it is.
+#11.  The changes to the spec file is in the file "pfile".  Not proud of it, but it is what it is.
 
-#11.  So, you want to build this from the source rpm?
+Note:  The above ada compiler was built without running the testsuite (because I didn't change any functional source) and it was not 'bootstrapped'.  It should work fine, but it is a little different than one would expect.
+
+
+So, do you trust some random rpm from the internet?  Probably not the smartest thing to do.  You may want to build this for yourself; the problem is that building gcc-gnat requires having an ada compiler.  And that has to come from somewhere.  
+
+No matter what, you have to trust something.
+
+My suggestion is to install the binary rpms for the version you need, and then follow the below suggestions.  They are not verified, but they should get you close to being able to compile these from source.
+
+
 
      `cd SRPMS`
      `rpm --install gcc-8.3.1-5.el8.0.3.src.rpm`  

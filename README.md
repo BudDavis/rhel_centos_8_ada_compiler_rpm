@@ -60,15 +60,15 @@ Keep the results availible.  They must match.
 
 9. Test Program  (cut and paste into a.adb)
  
- `with text_io;`
+ `with text_io;
  
- ` procedure a is`
+  procedure a is
  
- ` begin`
+  begin
  
- `    text_io.put_line("hello");`
+     text_io.put_line("hello");
  
-  `end;`
+  end;`
  
 #10.  Try it
 

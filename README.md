@@ -11,14 +11,15 @@ These rpms are provided for situations where you want to keep the gcc version th
 | ---------------- | ------------- |
 | CentOS-8.1.1911  | gcc-8.3.1.4   |
 | CentOS-8.2.2004  | gcc-8.3.1.5   |
-| CentOS-8.3.2011  |               |
+| CentOS-8.3.2011  | gcc-8.3.1.5   |
 | CentOS-Stream-8  | "who knows!"  |
 
 At the time this is written, there are no source rpms available for "stream", and if they were, what is current?  You can get them from a centos git repository, but at this point I don't need it.
 
 
+The version you have installed is important.
+
 `$ rpm --query gcc`
-`gcc-8.3.1-5.1.el8.x86_64`
 
 To install:
 
@@ -37,7 +38,7 @@ To install:
                `yum update`
                
 5. Install headers (to include 32 bit)
-               need to figure out the correct version...
+               (need to figure out the correct version...)
                `dnf install glibc-devel-2.28-127.el8.i686`
                `yum install glibc-devel-2.28-101.el8.i686 glibc-common glibc-headers`
                 

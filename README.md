@@ -4,7 +4,16 @@
 
 ada is no longer provided by redhat in rpm format.  
 
-These rpms are provided for situations where you want to keep the gcc version the same as original
+rhel 8 is a 64 bit OS, but it can run 32 bit code.  The gcc toolset will still make 32 bit object.
+
+This ada compiler will also make 32 bit code. But support in the spec file is kind of "rusted".
+
+
+
+These rpms are provided for situations where you want to keep the gcc version the same as original.  So, it "sneaks right" at the expense of the file names being the same.  I haven't done it, but I assume you will need to delete the rpms prior to 'dnf update' actually updating the base gcc.
+
+Why do you have to replace the base gcc package?  It is needed because invoking gcc with a .adb file works.
+
 
 
 | OS version       | gcc version   |

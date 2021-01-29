@@ -59,8 +59,8 @@ Keep the results availible.  They must match.
                `rpm --reinstall *8.3.1-5*`
 
 9. Test Program  (cut and paste into a.adb)
- 
- `with text_io;
+```ada 
+ with text_io;
  
   procedure a is
  
@@ -68,7 +68,8 @@ Keep the results availible.  They must match.
  
      text_io.put_line("hello");
  
-  end;`
+  end;
+```
  
 #10.  Try it
 

@@ -10,7 +10,7 @@ This ada compiler will also make 32 bit code. But support in the spec file is ki
 
 
 
-These rpms are provided for situations where you want to keep the gcc version the same as original.  So, it "sneaks right" at the expense of the file names being the same.  I haven't done it, but I assume you will need to delete the rpms prior to 'dnf update' actually updating the base gcc.
+These rpms are provided for situations where you want to keep the gcc version the same as original.  So, it "sneaks right in" at the expense of the file names being the same.  I haven't done it, but I assume you will need to delete the rpms prior to 'dnf update' actually updating the base gcc.
 
 Why do you have to replace the base gcc package?  It is needed because invoking gcc with a .adb file works.
 
